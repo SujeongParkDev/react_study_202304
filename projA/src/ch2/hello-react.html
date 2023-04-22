@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <meta charset="utf-8">
-    <!-- ���̺귯�� -->
-    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
-    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+        <meta charset="utf-8">
+        <!-- 라이브러리 -->
+        <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+        <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
     </head>
     <body>
         <div id="root"></div>
 
-        <!-- JSX ��� (�ڹٽ�ũ��Ʈ Ȯ�� ���) -->
-        <!-- �ڹٽ�ũ��Ʈ ������ HTML �±״� JSX ���� �ۼ��ǰ�, �ٺ��� ���� �ڹٽ�ũ��Ʈ �ڵ�� ��ȯ�� -->
+        <!-- JSX 사용 (자바스크립트 확장 언어) -->
+        <!-- 자바스크립트 내부의 HTML 태그는 JSX 통해 작성되고, 바벨에 의해 자바스크립트 코드로 변환됨 -->
         <script type="text/babel">
-            // ����Ʈ���� DOM ��� �� ReactDOM.render() ���
-            // ù��° �Ű�����: ������ �� ����
-            // �ι�° �Ű�����: ��´�� DOM ��� ����
+            // 리액트에서 DOM 출력 시 ReactDOM.render() 사용
+            // 첫번째 매개변수: 렌더링 할 내용
+            // 두번째 매개변수: 출력대상 DOM 요소 지정
             ReactDOM.render(
                 <h1>Hello, world!</h1>,
                 document.getElementById('root')
