@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- 라이브러리 -->
+        <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+        <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            // 변수 선언
+            const item = "SD 카드"
+            const value = 12000
+
+            // HTML 태그 내에 변수 값 넣기
+            // HTML 태그 내에 변수와 상수를 자유롭게 넣을 수 있음.
+            const msg = <h1>{item} - {value}</h1>
+            
+            // render() 로 렌더링하기
+            const elm = document.getElementById("root")
+            ReactDOM.render(msg, elm)
+        </script>
+    </body>
+</html>
