@@ -1,6 +1,6 @@
-// ¸ğµâ ÀĞ±â
+// ëª¨ë“ˆ ì½ê¸°
 const calculator = require('./calculator_module.js')
 
-// ¸ğµâ ÇÔ¼ö »ç¿ë
+// ëª¨ë“ˆ í•¨ìˆ˜ ì‚¬ìš©
 console.log('3+5=', calculator.add(3, 5))
 console.log('4*8=', calculator.multifly(4, 8))
