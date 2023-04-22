@@ -18,10 +18,25 @@
 
             // 요소 반환하는 함수
             function getDom() {
+                // 객체로 스타일 지정
+                // css스타일, 자바스크립트 스타일 두 방법 다 사용가능.
+                const css1 = { // (1) css스타일
+                    "color": 'red',
+                    "background-color": '#f0f0ff',
+                    "font-size": '2em'
+                }
+
+                const css2 = { // (2) 자바스크립트 스타일
+                    color: 'blue',
+                    backgroundColor: '#fff0f0',
+                    fontSize: '2em'
+                }
+
+                // JSX로 DOM 지정
                 return (
                     <div>
-                        <p>죄는 미워하되 사람은 미워하지 말라</p>
-                        <p>이 또한 지나가리라</p>
+                        <p style={css1}>죄는 미워하되 사람은 미워하지 말라</p>
+                        <p style={css2}>이 또한 지나가리라</p>
                     </div>
                 )
             }
