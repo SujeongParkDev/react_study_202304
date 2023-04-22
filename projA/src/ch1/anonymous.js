@@ -1,14 +1,14 @@
-// ÀÍ¸íÇÔ¼ö·Î ÇÔ¼ö Á¤ÀÇ
+// ìµëª…í•¨ìˆ˜ë¡œ í•¨ìˆ˜ ì •ì˜
 const f1 = function (s) { console.log(s) }
 const f2 = (s) => { console.log(s) }
 
-// ÀÍ¸íÇÔ¼ö´Â ÀÏ¹ÝÀûÀÎ ÇÔ¼öÃ³·³ »ç¿ëÇÔ.
+// ìµëª…í•¨ìˆ˜ëŠ” ì¼ë°˜ì ì¸ í•¨ìˆ˜ì²˜ëŸ¼ ì‚¬ìš©í•¨.
 f1('foo')
 f2('bar')
 
-// ÀÍ¸íÇÔ¼ö´Â ÀÌ¸§ ¾øÀÌ ÇÔ¼ö¸¦ Á¤ÀÇÇÏ°í, º¯¼ö³ª »ó¼ö¿¡ ÇÔ¼ö °´Ã¼¸¦ ´ëÀÔÇÒ ¼ö ÀÖÀ½.
+// ìµëª…í•¨ìˆ˜ëŠ” ì´ë¦„ ì—†ì´ í•¨ìˆ˜ë¥¼ ì •ì˜í•˜ê³ , ë³€ìˆ˜ë‚˜ ìƒìˆ˜ì— í•¨ìˆ˜ ê°ì²´ë¥¼ ëŒ€ìž…í•  ìˆ˜ ìžˆìŒ.
 
-// ¼Ò¹®ÀÚ¸¦ ´ë¹®ÀÚ·Î º¯È¯ÇÏ´Â ¿¹
+// ì†Œë¬¸ìžë¥¼ ëŒ€ë¬¸ìžë¡œ ë³€í™˜í•˜ëŠ” ì˜ˆ
 const sentence = 'Keep On Asking, and It Will Be Given You.'
 const replaceSentence = sentence.replace(/[a-z]+/g, function (m) {
     return m.toUpperCase()
@@ -16,7 +16,7 @@ const replaceSentence = sentence.replace(/[a-z]+/g, function (m) {
 
 console.log(replaceSentence)
 
-// ¹è¿­ÀÇ ¼ýÀÚ¸¦ Á¤·ÄÇÏ´Â ¿¹
+// ë°°ì—´ì˜ ìˆ«ìžë¥¼ ì •ë ¬í•˜ëŠ” ì˜ˆ
 const arr = [100, 1, 20, 43, 30, 11, 4]
 arr.sort((a, b) => { return b - a} )
 console.log(arr)

@@ -1,7 +1,7 @@
 const fs = require('fs')
 
-// ÆÄÀÏ ÀĞ±â
+// íŒŒì¼ ì½ê¸°
 fs.readFile('test.txt', 'utf-8', function (err, data) {
-    // ÀĞ¾î µéÀÌ±â ¿Ï·á ½Ã Ã³¸®
+    // ì½ì–´ ë“¤ì´ê¸° ì™„ë£Œ ì‹œ ì²˜ë¦¬
     console.log(data)
 })

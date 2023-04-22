@@ -1,59 +1,59 @@
 const http = require('http')
-const ctype = {'Content-Type': 'text/html;charset=utf-8'}
+const ctype = {'Content-Type': 'text/html;charset=UTF-8'}
 
-// (1) À¥¼­¹ö ½ÇÇà
+// (1) ì›¹ì„œë²„ ì‹¤í–‰
 const svr = http.createServer(handler)
 svr.listen(8081) 
 
-// (2) ¼­¹ö Á¢±Ù ½Ã Ã³¸®
+// (2) ì„œë²„ ì ‘ê·¼ ì‹œ ì²˜ë¦¬
 function handler (req, res) {
-    // URL ±¸ºĞ
+    // URL êµ¬ë¶„
     const url = req.url
     
-    // ÆäÀÌÁö ±¸ºĞ
-    // ÃÖ»óÀ§ ÆäÀÌÁöÀÏ ¶§
+    // í˜ì´ì§€ êµ¬ë¶„
+    // ìµœìƒìœ„ í˜ì´ì§€ì¼ ë•Œ
     if (url === '/' || url === '/index.html') {
         showIndexPage(req, res)
         return
     }
 
-    // ÁÖ»çÀ§ ÆäÀÌÁöÀÏ ¶§
+    // ì£¼ì‚¬ìœ„ í˜ì´ì§€ì¼ ë•Œ
     if (url.substr(0, 6) === '/dice/') {
         showDicePage(req, res)
         return
     }
 
-    // ±× ¿Ü ÆäÀÌÁöÀÏ ¶§
+    // ê·¸ ì™¸ í˜ì´ì§€ì¼ ë•Œ
     res.writeHead(404, ctype)
     res.end('404 not found')
 }
 
-// (3) ÀÎµ¦½º ÆäÀÌÁö Á¢±Ù ½Ã Ã³¸®
+// (3) ì¸ë±ìŠ¤ í˜ì´ì§€ ì ‘ê·¼ ì‹œ ì²˜ë¦¬
 function showIndexPage (req, res) {
-    // HTTP Çì´õ Ãâ·Â
+    // HTTP í—¤ë” ì¶œë ¥
     res.writeHead(200, ctype)
 
-    // ÀÀ´ä º»¹® Ãâ·Â
-    const html = '<h1>ÁÖ»çÀ§ ÆäÀÌÁö ¾È³»</h1>\n' +
-                 '<p><a href="/dice/6">6¸éÃ¼ ÁÖ»çÀ§</a></p>' +
-                 '<p><a href="/dice/12">12¸éÃ¼ ÁÖ»çÀ§</a></p>'
+    // ì‘ë‹µ ë³¸ë¬¸ ì¶œë ¥
+    const html = '<h1>ì£¼ì‚¬ìœ„ í˜ì´ì§€ ì•ˆë‚´</h1>\n' +
+                 '<p><a href="/dice/6">6ë©´ì²´ ì£¼ì‚¬ìœ„</a></p>' +
+                 '<p><a href="/dice/12">12ë©´ì²´ ì£¼ì‚¬ìœ„</a></p>'
     res.end(html)
 }
 
-// (4) ÁÖ»çÀ§ ÆäÀÌÁö Á¢±Ù ½Ã Ã³¸®
+// (4) ì£¼ì‚¬ìœ„ í˜ì´ì§€ ì ‘ê·¼ ì‹œ ì²˜ë¦¬
 function showDicePage (req, res) {
-    // HTTP Çì´õ Ãâ·Â
+    // HTTP í—¤ë” ì¶œë ¥
     res.writeHead(200, ctype)
 
-    // ¸î ¸éÃ¼ ÁÖ»çÀ§ÀÎÁö È®ÀÎ
+    // ëª‡ ë©´ì²´ ì£¼ì‚¬ìœ„ì¸ì§€ í™•ì¸
     const a = req.url.split('/')
     console.log(a)
-    const num = parseInt(a[2]) // 6 ¶Ç´Â 12
+    const num = parseInt(a[2]) // 6 ë˜ëŠ” 12
 
-    // ÀÓÀÇ ¼ıÀÚ »ı¼º
+    // ì„ì˜ ìˆ«ì ìƒì„±
     const rnd = Math.floor(Math.random() * num) + 1
 
-    // ÀÀ´ä º»¹® Ãâ·Â
+    // ì‘ë‹µ ë³¸ë¬¸ ì¶œë ¥
     res.end('<p style="font-size:72px;">' + rnd + '</p>')
 
 }

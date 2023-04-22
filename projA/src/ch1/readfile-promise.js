@@ -1,7 +1,7 @@
 const fs = require('fs')
 
-// (1) Promise ¹ÝÈ¯ÇÏ´Â ÇÔ¼ö Á¤ÀÇ
-// Promise »ç¿ëÇÏ´Â °æ¿ì, Promise °´Ã¼ ¹ÝÈ¯ÇÏ´Â ÇÔ¼ö ¼±¾ðÇØ¾ß ÇÔ.
+// (1) Promise ë°˜í™˜í•˜ëŠ” í•¨ìˆ˜ ì •ì˜
+// Promise ì‚¬ìš©í•˜ëŠ” ê²½ìš°, Promise ê°ì²´ ë°˜í™˜í•˜ëŠ” í•¨ìˆ˜ ì„ ì–¸í•´ì•¼ í•¨.
 function readFile_pr (fname) {
     return new Promise((resolve) => {
         fs.readFile(fname, 'utf-8', (err, s) => {
@@ -10,17 +10,17 @@ function readFile_pr (fname) {
     })
 }
 
-// (2) Â÷·Ê´ë·Î ÅØ½ºÆ® ÆÄÀÏ ÀÐ±â
-// ºñµ¿±â Ã³¸® ¿Ï·á ½Ã .then() ¸Þ¼­µå ³»ºÎÀÇ ÇÔ¼ö°¡ ½ÇÇàµÊ.
+// (2) ì°¨ë¡€ëŒ€ë¡œ í…ìŠ¤íŠ¸ íŒŒì¼ ì½ê¸°
+// ë¹„ë™ê¸° ì²˜ë¦¬ ì™„ë£Œ ì‹œ .then() ë©”ì„œë“œ ë‚´ë¶€ì˜ í•¨ìˆ˜ê°€ ì‹¤í–‰ë¨.
 readFile_pr('a.txt')
 .then((text) => {
-    console.log('a.txt¸¦ ÀÐ¾îµé¿´½À´Ï´Ù.', text)
+    console.log('a.txtï¿½ï¿½ ï¿½Ð¾ï¿½é¿´ï¿½ï¿½ï¿½Ï´ï¿½.', text)
     return readFile_pr('b.txt')
 })
 .then((text) => {
-    console.log('b.txt¸¦ ÀÐ¾îµé¿´½À´Ï´Ù.', text)
+    console.log('b.txtï¿½ï¿½ ï¿½Ð¾ï¿½é¿´ï¿½ï¿½ï¿½Ï´ï¿½.', text)
     return readFile_pr('c.txt')
 })
 .then ((text) => {
-    console.log('c.txt¸¦ ÀÐ¾îµé¿´½À´Ï´Ù.', text)
+    console.log('c.txtï¿½ï¿½ ï¿½Ð¾ï¿½é¿´ï¿½ï¿½ï¿½Ï´ï¿½.', text)
 })

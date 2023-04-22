@@ -1,13 +1,13 @@
 const fs = require('fs')
 
-// ºñµ¿±â Ã³¸® ¿Ï·á ±â´Ù¸®°í, ´ÙÀ½ ÇÔ¼ö¸¦ ¿¬¼ÓÇØ¼­ È£ÃâÇÏ´Â ÇÔ¼ö
+// ë¹„ë™ê¸° ì²˜ë¦¬ ì™„ë£Œ ê¸°ë‹¤ë¦¬ê³ , ë‹¤ìŒ í•¨ìˆ˜ë¥¼ ì—°ì†í•´ì„œ í˜¸ì¶œí•˜ëŠ” í•¨ìˆ˜
 function read_gfn (g, fname) {
     fs.readFile(fname, 'utf-8', (err, data) => {
         g.next(data)
     })
 }
 
-// Á¦³Ê·¹ÀÌÅÍ ÇÔ¼ö Á¤ÀÇ
+// ì œë„ˆë ˆì´í„° í•¨ìˆ˜ ì •ì˜
 const g = (function * () {
     const a = yield read_gfn(g, 'a.txt')
     console.log(a)

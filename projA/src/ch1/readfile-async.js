@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-// (1) ÇÁ·Î¹Ì½º·Î ºñµ¿±âÀûÀ¸·Î ÆÄÀÏ ÀÐ´Â ÇÔ¼ö Á¤ÀÇ
+// (1) í”„ë¡œë¯¸ìŠ¤ë¡œ ë¹„ë™ê¸°ì ìœ¼ë¡œ íŒŒì¼ ì½ëŠ” í•¨ìˆ˜ ì •ì˜
 function readFileEx (fname) {
     return new Promise((resolve, reject) => {
         fs.readFile(fname, 'utf-8', (err, data) => {
@@ -9,7 +9,7 @@ function readFileEx (fname) {
     })
 }
 
-// (2) ¸ðµç ÆÄÀÏ ÀÐ¾îµéÀÌ´Â async ÇÔ¼ö Á¤ÀÇ
+// (2) ëª¨ë“  íŒŒì¼ ì½ì–´ë“¤ì´ëŠ” async í•¨ìˆ˜ ì •ì˜
 async function readAll () {
     const a = await readFileEx('a.txt')
     console.log(a)
@@ -21,6 +21,6 @@ async function readAll () {
 
 readAll()
 
-// async, await ´Â Node v7 ÀÌÈÄºÎÅÍ Áö¿ø
-// ºñµ¿±â Ã³¸® ½ÇÇàÀ» ´ë±âÇÏ°í ½ÍÀº ÇÔ¼ö È£Ãâ ½Ã awaut "ÇÔ¼ö ÀÌ¸§" (¸Å°³º¯¼ö) ¿Í °°ÀÌ ÀÛ¼ºÇØ¾ß ÇÔ.
-// await »ç¿ëÇÏ·Á¸é ÇÔ¼ö¸¦ async function ÀÌ¶ó´Â ±¸¹®À¸·Î Á¤ÀÇÇØ¾ß ÇÔ.
+// async, await ëŠ” Node v7 ì´í›„ë¶€í„° ì§€ì›
+// ë¹„ë™ê¸° ì²˜ë¦¬ ì‹¤í–‰ì„ ëŒ€ê¸°í•˜ê³  ì‹¶ì€ í•¨ìˆ˜ í˜¸ì¶œ ì‹œ awaut "í•¨ìˆ˜ ì´ë¦„" (ë§¤ê°œë³€ìˆ˜) ì™€ ê°™ì´ ìž‘ì„±í•´ì•¼ í•¨.
+// await ì‚¬ìš©í•˜ë ¤ë©´ í•¨ìˆ˜ë¥¼ async function ì´ë¼ëŠ” êµ¬ë¬¸ìœ¼ë¡œ ì •ì˜í•´ì•¼ í•¨.

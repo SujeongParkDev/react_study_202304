@@ -1,16 +1,16 @@
 const fs = require('fs')
 
-// (1) a.txt ÀĞ±â
+// (1) a.txt ì½ê¸°
 fs.readFile('a.txt', 'utf-8', function (err, data) {
-    console.log('a.txt¸¦ ÀĞ¾îµé¿´½À´Ï´Ù.', data)
+    console.log('a.txtï¿½ï¿½ ï¿½Ğ¾ï¿½é¿´ï¿½ï¿½ï¿½Ï´ï¿½.', data)
     
-    // (2) b.txt ÀĞ±â
+    // (2) b.txt ì½ê¸°
      fs.readFile('b.txt', 'utf-8', function (err, data) {
-        console.log('b.txt¸¦ ÀĞ¾îµé¿´½À´Ï´Ù.', data)
+        console.log('b.txtï¿½ï¿½ ï¿½Ğ¾ï¿½é¿´ï¿½ï¿½ï¿½Ï´ï¿½.', data)
 
-        // (3) c.txt ÀĞ±â
+        // (3) c.txt ì½ê¸°
         fs.readFile('c.txt', 'utf-8', function (err, datat) {
-            console.log('c.txt¸¦ ÀĞ¾îµé¿´½À´Ï´Ù.', data)
+            console.log('c.txtï¿½ï¿½ ï¿½Ğ¾ï¿½é¿´ï¿½ï¿½ï¿½Ï´ï¿½.', data)
         })
      })
 })
