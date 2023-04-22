@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- 라이브러리 -->
+        <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+        <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            // React로 DOM의 내용을 변경
+            ReactDOM.render(
+                getDom(),
+                document.getElementById('root')
+            );
+
+            // 요소 반환하는 함수
+            function getDom() {
+                return (
+                    <div>
+                        <p>죄는 미워하되 사람은 미워하지 말라</p>
+                        <p>이 또한 지나가리라</p>
+                    </div>
+                )
+            }
+        </script>
+    </body>
+</html>
