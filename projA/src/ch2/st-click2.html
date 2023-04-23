@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- 라이브러리 -->
+        <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+        <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            /**
+             * 클릭 이벤트로 클래스의 메서드를 호출하고 싶을 때
+             * onClick으로 메서드 지정 시, 해당 메서드가 이벤트 핸들러로 호출될 때 this가 undefined가 됨
+             * 미리 clickHandler에 this를 바인드해야 this를 인식 시킬 수 있음.
+            */
+            
+            // 컴포넌트 정의
+            class Hello extends React.Component {
+                constructor (props) {
+                    super(props)
+                    // 이벤트 핸들러의  this 설정
+                    // this를 바인드해두면 클릭이벤트 지정 시 this.clickHandler 지정해도 됨
+                    this.clickHandler = this.clickHandler.bind(this)
+                }
+
+                clickHandler (e) {
+                    const name = this.props.name
+                    window.alert(name + '님 안녕하세요.')
+                    // window.alert('${name}님 안녕하세요.')
+                }
+
+                render() {
+                    // 클릭 이벤트 지정
+                    return (
+                        <div onClick={this.clickHandler}>Click Me</div>
+                    )
+                }
+            }
+
+            // 컴포넌트 사용
+            ReactDOM.render(
+                <Hello name="윤인성" />,
+                document.getElementById('root')
+            )
+        </script>
+    </body>
+</html>
