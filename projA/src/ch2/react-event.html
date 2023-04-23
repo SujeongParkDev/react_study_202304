@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- 라이브러리 -->
+        <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+        <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            // 리액트로 이벤트 만드는 방법
+
+            // (1) render() 메서드 내부에서 이벤트 핸들러 정의하기
+            // render() 메서드 내부에서 화살표 함수 사용해 이벤트 핸들러 작성하는 것이 가장 쉬운 방법임
+            class Test1 extends React.Component {
+                render() {
+                    const handler = (e) => alert('Hello')
+                    return <button onClick={handler}>Click1</button>
+                }
+            }
+            
+            // (2) class 메서드로 정의하고, this 바인드하기
+            class Test2 extends React.Component {
+                constructor (props) {
+                    super(props)
+                    this.classHandler = this.classHandler.bind(this)
+                }
+
+                classHandler () {
+                    alert('Hi')
+                }
+
+                render() {
+                    return <button onClick={this.classHandler}>Click2</button>
+                }
+            }
+            
+            // (3) 클래스 메서드로 정의하고 화살표 함수로 호출하기
+            class Test3 extends React.Component {
+                classHandler() {
+                    alert('Good afternoon')
+                }
+
+                render() {
+                    return <button onClick={e => this.classHandler(e)}>Click3</button>
+                }
+            }
+
+            // 리액트로 DOM 내용 변경
+            const dom = <div>
+                    <Test1 />
+                    <Test2 />
+                    <Test3 />
+                </div>
+            
+            ReactDOM.render(
+                dom, document.getElementById('root')
+            )
+        </script>
+    </body>
+</html>
