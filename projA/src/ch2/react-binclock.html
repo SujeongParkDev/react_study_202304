@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- 라이브러리 -->
+        <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+        <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+        <style> body { font-size: 32px; text-align: center; } </style>
+    </head>
+    <body>
+        <div id="disp"></div>
+        <script type="text/babel">
+            // 정기적으로 화면 변경
+            setInterval(update, 1000)
+
+            // 정기적으로 실행되는 함수
+            function update () {
+                //  현재 시간을 이진 숫자로 변환
+                const now = new Date();
+                const hh = z2(now.getHours())
+                const mm = z2(now.getMinutes())
+                const dd = z2(now.getSeconds())
+                const binStr = hh + mm + dd
+
+                const style0 = { color: 'brown' }
+                const style1 = { color: 'red' }
+
+                const lines = []
+                for (let i = 0; i < binStr.length; i++) {
+                    const v = parseInt(binStr.substr(i, 1))
+                    // 각 자릿수를 2진수로 변환
+                    const bin = "0000" + v.toString(2)
+                    const bin8 = bin.substr(bin.length - 4, 4)
+
+                    // 이진 숫자 구성하는 리액트 객체를 lines 배열에 추가
+                    for (let j = 0; j < bin8.length; j ++) {
+                        if (bin8.substr(j, 1) === '0') {
+                            lines.push(<span style={style0}>○</span>)
+                        } else {
+                            lines.push(<span style={style1}>●</span>)
+                        }
+                    }
+                    lines.push(<br />)
+                }
+
+                // DOM 내용 변경
+                const disp = document.getElementById('disp')
+                ReactDOM.render(<div>{lines}</div>, disp)
+            }
+
+            // 시, 분, 초가 한 자리일때 0을 붙여 두자리로 변경하는 함수
+            function z2 (v) {
+                v = String("00" + v)
+                return v.substr(v.length - 2, 2)
+            }
+        </script>
+    </body>
+</html>
