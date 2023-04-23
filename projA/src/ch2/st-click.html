@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- 라이브러리 -->
+        <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+        <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            /**
+             * 상태를 관리하려면 컴포넌트 자체가 상태를 값으로 기억하게 해야 함
+             * 상태를 만들 때는 컴포넌트의 state 객체 사용
+             * state 객체는 한 번 값을 설정한 이후 값을 변경할 때는 setStatus() 메서드 사용해야 함.
+             * => setStatus() 메서드로 값을 변경해서 상태 변화 시 자동으로 render() 메서드 함께 호출해서 컴포넌트 재구성하기 위해서임.
+             * 컴포넌트 상태 초기화에는 클래스의 생성자 함수 사용. 
+             * 생성자 함수 내부에서 this.state 에 객체를 지정하면 됨.
+             * 
+             * 상태 초기화하기
+             * class 컴포넌트이름 extends React.Component {
+             *     constructor (props) {
+             *         this.state = { 초기값 }
+             *     }
+             * } 
+             * 
+             * 상태 참조하기
+             * console.log(this.state.이름)
+             * 
+             * 상태 변경하기
+             * this.setState( {이름: 새로운값} )
+            */
+
+            // 상태를 가진 시계 컴포넌트 정의
+            class SClock extends React.Component {
+                // 상태 초기화
+                constructor (props) {
+                    super(props)
+                    this.state = {
+                        now: (new Date())
+                    }
+
+                // 매초마다 상태 변경
+                setInterval(e => {
+                        this.setState({ now: (new Date()) })
+                    }, 1000)
+                }
+
+                // 렌더링할 내용 반환 (화면 출력)
+                render() {
+                    const now = this.state.now
+                    const hh = this.fmt(now.getHours())
+                    const mm = this.fmt(now.getMinutes())
+                    const ss = this.fmt(now.getSeconds())
+
+                    return (<div>{hh}:{mm}:{ss}</div>)
+                }
+
+                fmt (v) {
+                    const s = "00" + v
+                    return s.substr(s.length - 2, 2)
+                }
+            }
+
+            // 컴포넌트 배치
+            ReactDOM.render(
+                <div><SClock /></div>,
+                document.getElementById('root'))
+        </script>
+    </body>
+</html>
