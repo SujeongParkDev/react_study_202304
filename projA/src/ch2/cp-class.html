@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- 라이브러리 -->
+        <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+        <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            // 클래스로 컴포넌트 정의
+            // React.Component 기본 컴포넌트 클래스 상속받음.
+            // render() 메서드의 반환값이 컴포넌트 출력 내용이 됨.
+            // 컴포넌트 사용 시 태그 요소는 this.props 라는 객체 자료형에 들어있음.
+            // ex. Greeting 태그는 type 속성을 지정하고 있는데, 이 값을 컴포넌트 측에서 참조할 때는 this.props.type 을 사용함.
+            class Greeting extends React.Component {
+                render () {
+                    return <h1>{this.props.type}</h1>
+                }
+            }
+
+            // 컴포넌트 사용
+            const dom = <div>
+                    <Greeting type="Hello!" />
+                    <Greeting type="Good morning!" />
+                </div>
+
+            // React로 DOM 내용 변경
+            ReactDOM.render(dom, document.getElementById('root'))
+        </script>
+    </body>
+</html>
