@@ -15,6 +15,8 @@
                 render() {
                     // items 속성에 지정한  items 배열을 사용
                     const items = this.props.items.split(",")
+                    // console.log("items", items)
+                    
                     // 아이템 목록 기반으로 li 요소 생성
                     const itemsObj = items.map(
                         (e) => {
@@ -36,9 +38,17 @@
 
             // 컴포넌트 출력
             ReactDOM.render(
-                <RList
-                    title="Colors"
-                    items="Red,Green,Blue,White" />,
+                <div>
+                    <RList
+                        title="Colors"
+                        items="Red,Green,Blue,White" />
+                    <RList 
+                        title="과일"
+                        items="바나나,사과,딸기" />
+                    <RList 
+                        title="야채"
+                        items="무,당근,오이" />
+                </div>,
                 document.getElementById('root')
             )
         </script>
